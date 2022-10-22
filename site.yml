@@ -1,5 +1,12 @@
 ---
-- name: configuration jenkins on ec2
+- name: configuration jenkins
   hosts: jenkins-host
   roles:
     - roles/jenkins_role
+  
+
+- name: configuration nginx
+  hosts: webserver-host
+  roles:
+    - roles/webserver_role
+  

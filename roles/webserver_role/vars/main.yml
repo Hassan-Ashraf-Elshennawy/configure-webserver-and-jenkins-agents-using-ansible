@@ -1,0 +1,9 @@
+---
+# vars file for roles/iti_web_servers
+
+nginx_packge:
+  - nginx
+
+nginx_service: nginx
+
+nginx_html_dir: /usr/share/nginx/html
