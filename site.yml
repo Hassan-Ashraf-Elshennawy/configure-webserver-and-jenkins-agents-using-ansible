@@ -1,0 +1,5 @@
+---
+- name: configuration jenkins on ec2
+  hosts: jenkins-host
+  roles:
+    - roles/jenkins_role

@@ -1,0 +1,6 @@
+---
+# vars file for roles/jenkins_role
+java_packge :
+  - java-11-openjdk-devel
+  - wget
+jenkins_service : jenkins

@@ -1,0 +1,28 @@
+---
+# tasks file for roles/jenkins_role
+- name : update cashe and install java
+  ansible.builtin.yum:
+   name: "{{ java_packge }}"
+   update_cache : yes
+   state: present
+
+- name: Configuring yum 
+  ansible.builtin.get_url:
+    dest: /etc/yum.repos.d/jenkins.repo 
+    url: http://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+- name: Configuring rpm packge
+  ansible.builtin.rpm_key:
+    key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+   
+
+- name : install jenkins
+  ansible.builtin.yum:
+   name: "{{ jenkins_service }}"
+   state: present
+
+- name: start and enable jenkins_service
+  ansible.builtin.service:
+    name: "{{ jenkins_service }}"
+    enabled: yes
+    state: started
